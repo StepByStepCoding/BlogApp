@@ -1,0 +1,14 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+  gap: 16px;
+  text-align: center;
+
+  h1 { font-size: 2.5rem; margin: 0; }
+  p  { font-size: 1.2rem; color: #555; }
+
+  button { min-width: 160px; }
+}
