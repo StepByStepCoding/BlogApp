@@ -1,0 +1,10 @@
+.post-detail-container {
+  padding: 24px;
+  max-width: 800px;
+  margin: 0 auto;
+
+  mat-card-content p {
+    line-height: 1.6;
+    white-space: pre-wrap;
+  }
+}
