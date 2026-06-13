@@ -1,9 +1,13 @@
-<mat-toolbar color="primary">
-  <span>BlogApp</span>
+<mat-toolbar class="app-toolbar">
+  <a class="brand" routerLink="/">✦ BlogApp</a>
   <span class="spacer"></span>
-  <button mat-button routerLink="/">Home</button>
-  <button mat-button routerLink="/posts">Posts</button>
-  <button mat-button routerLink="/posts/new">New Post</button>
+  <button mat-button class="nav-btn" routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}">
+    <span class="nav-label">Home</span>
+  </button>
+  <button mat-button class="nav-btn" routerLink="/posts" routerLinkActive="active-link">
+    <span class="nav-label">Posts</span>
+  </button>
+  <button mat-raised-button class="new-post-btn" routerLink="/posts/new">+ Write</button>
 </mat-toolbar>
 
 <router-outlet />

@@ -1,26 +1,33 @@
-<div class="post-form-container">
-  <h2>{{ isEdit ? 'Edit Post' : 'New Post' }}</h2>
-  <form [formGroup]="form" (ngSubmit)="submit()">
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Title</mat-label>
-      <input matInput formControlName="title" />
-    </mat-form-field>
-
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Author</mat-label>
-      <input matInput formControlName="author" />
-    </mat-form-field>
-
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Content</mat-label>
-      <textarea matInput formControlName="content" rows="8"></textarea>
-    </mat-form-field>
-
-    <div class="form-actions">
-      <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
-        {{ isEdit ? 'Update' : 'Create' }}
-      </button>
-      <button mat-button type="button" routerLink="/posts">Cancel</button>
+<div class="form-page">
+  <div class="form-card">
+    <div class="form-card-header">
+      <div class="form-icon">{{ isEdit ? '✏️' : '📝' }}</div>
+      <h1>{{ isEdit ? 'Edit Post' : 'New Post' }}</h1>
+      <p>{{ isEdit ? 'Update your story below.' : 'Share something worth reading.' }}</p>
     </div>
-  </form>
+
+    <form [formGroup]="form" (ngSubmit)="submit()" class="form-body">
+      <mat-form-field appearance="outline" class="field">
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="title" placeholder="Give your post a great title" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="field">
+        <mat-label>Author</mat-label>
+        <input matInput formControlName="author" placeholder="Your name" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="field">
+        <mat-label>Content</mat-label>
+        <textarea matInput formControlName="content" rows="10" placeholder="Write your story here…"></textarea>
+      </mat-form-field>
+
+      <div class="form-actions">
+        <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid" class="submit-btn">
+          {{ isEdit ? 'Save Changes' : 'Publish Post' }}
+        </button>
+        <button mat-button type="button" routerLink="/posts" class="cancel-btn">Cancel</button>
+      </div>
+    </form>
+  </div>
 </div>

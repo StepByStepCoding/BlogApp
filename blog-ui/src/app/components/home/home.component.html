@@ -1,6 +1,37 @@
-<div class="hero">
-  <h1>Welcome to BlogApp</h1>
-  <p>A full-stack blog built with Angular and .NET.</p>
-  <button mat-raised-button color="primary" routerLink="/posts">Browse Posts</button>
-  <button mat-raised-button color="accent" routerLink="/posts/new">Write a Post</button>
-</div>
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Full-Stack Blog Demo</div>
+    <h1 class="hero-title">Ideas worth<br><span class="accent">sharing.</span></h1>
+    <p class="hero-subtitle">A modern blog built with Angular 21 &amp; .NET 9. Write, discover, and connect through great storytelling.</p>
+    <div class="hero-actions">
+      <button mat-raised-button class="cta-primary" routerLink="/posts">Browse Posts</button>
+      <button mat-stroked-button class="cta-secondary" routerLink="/posts/new">Start Writing</button>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="card-stack">
+      <div class="preview-card c1"><div class="bar"></div><div class="line w80"></div><div class="line w60"></div></div>
+      <div class="preview-card c2"><div class="bar"></div><div class="line w70"></div><div class="line w50"></div></div>
+      <div class="preview-card c3"><div class="bar accent-bar"></div><div class="line w90"></div><div class="line w65"></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <div class="feature">
+    <div class="feature-icon">📝</div>
+    <h3>Write</h3>
+    <p>Create beautifully formatted posts with our clean editor.</p>
+  </div>
+  <div class="feature">
+    <div class="feature-icon">🔍</div>
+    <h3>Discover</h3>
+    <p>Search and filter posts by title or author instantly.</p>
+  </div>
+  <div class="feature">
+    <div class="feature-icon">⚡</div>
+    <h3>Fast</h3>
+    <p>Backed by a .NET 9 API with in-memory performance.</p>
+  </div>
+</section>

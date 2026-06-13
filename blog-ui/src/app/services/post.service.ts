@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const API_URL = 'https://localhost:5001/api';
+const API_URL = 'http://localhost:5135/api';
 
 export interface Post {
   id: number;

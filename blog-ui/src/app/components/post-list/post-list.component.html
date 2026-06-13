@@ -1,24 +1,44 @@
-<div class="post-list-container">
-  <div class="list-header">
-    <h2>All Posts</h2>
-    <mat-form-field appearance="outline" class="search-field">
-      <mat-label>Search by title or author</mat-label>
-      <input matInput [(ngModel)]="searchTerm" />
-      <mat-icon matSuffix>search</mat-icon>
-    </mat-form-field>
+<div class="page-header">
+  <div class="page-header-inner">
+    <h1>All Posts</h1>
+    <p>{{ filteredPosts().length }} {{ filteredPosts().length === 1 ? 'post' : 'posts' }}</p>
   </div>
+  <mat-form-field appearance="outline" class="search-field">
+    <mat-label>Search posts…</mat-label>
+    <mat-icon matPrefix>search</mat-icon>
+    <input matInput [ngModel]="searchTerm()" (ngModelChange)="onSearch($event)" />
+  </mat-form-field>
+</div>
+
+<div class="posts-container">
+  @if (filteredPosts().length === 0) {
+    <div class="empty-state">
+      <div class="empty-icon">📭</div>
+      <h3>No posts found</h3>
+      <p>Try a different search term, or <a routerLink="/posts/new">write the first one.</a></p>
+    </div>
+  }
 
   <div class="posts-grid">
-    <mat-card *ngFor="let post of filteredPosts" class="post-card">
-      <mat-card-header>
-        <mat-card-title>{{ post.title }}</mat-card-title>
-        <mat-card-subtitle>{{ post.author }} · {{ post.createdAt | date:'mediumDate' }}</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-actions>
-        <button mat-button [routerLink]="['/posts', post.id]">Read More</button>
-      </mat-card-actions>
-    </mat-card>
+    @for (post of filteredPosts(); track post.id; let i = $index) {
+      <article class="post-card" [class.featured]="i === 0" [routerLink]="['/posts', post.id]">
+        <div class="card-accent" [style.background]="accentColor(i)"></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="author-chip">
+              <span class="avatar">{{ post.author[0].toUpperCase() }}</span>
+              {{ post.author }}
+            </span>
+            <span class="date">{{ post.createdAt | date:'MMM d, y' }}</span>
+          </div>
+          <h2 class="card-title">{{ post.title }}</h2>
+          <p class="card-excerpt">{{ post.content | slice:0:120 }}{{ post.content.length > 120 ? '…' : '' }}</p>
+          <div class="card-footer">
+            <span class="read-more">Read article →</span>
+            <span class="read-time">{{ readTime(post.content) }} min read</span>
+          </div>
+        </div>
+      </article>
+    }
   </div>
-
-  <p *ngIf="filteredPosts.length === 0" class="no-results">No posts match your search.</p>
 </div>
