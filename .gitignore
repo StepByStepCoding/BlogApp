@@ -1,0 +1,11 @@
+# .NET
+BlogApi/bin/
+BlogApi/obj/
+
+# Angular
+blog-ui/node_modules/
+blog-ui/dist/
+
+# OS
+.DS_Store
+Thumbs.db
